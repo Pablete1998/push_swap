@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/19 19:03:00 by pabserra         ###   ########.fr       */
+/*   Created: 2025/12/19 14:22:24 by pabserra          #+#    #+#             */
+/*   Updated: 2025/12/19 14:45:04 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_list
+char	**array_change_rra(char **stack_a)
 {
-	void			*content;
-	struct stack_a	*next;
-}	stack_a;
-
-typedef struct s_list
-{
-	void			*content;
-	struct stack_b	*next;
-}	stack_b;
-
-int		the_real_parse(char **argument);
-char	**finalbuilt(int argv, char	**argvs);
-char	**make_it_real(int i, char **argument);
-
-#endif
+	
+}

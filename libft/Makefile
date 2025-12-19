@@ -6,7 +6,7 @@
 #    By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/30 15:31:33 by pabserra          #+#    #+#              #
-#    Updated: 2025/12/16 14:20:54 by pabserra         ###   ########.fr        #
+#    Updated: 2025/12/19 18:38:30 by pabserra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SOURCE = 	libft_src/ft_isalpha.c\
 			libft_src/ft_putstr_fd.c\
 			libft_src/ft_putendl_fd.c\
 			libft_src/ft_putnbr_fd.c\
-			libft_src/ft_strcmp.c
+			libft_src/ft_strcmp.c\
+			libft_src/ft_atoll.c
 			
 
 BONUS = 	libft_src/ft_lstnew_bonus.c\

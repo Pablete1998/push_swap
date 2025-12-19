@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:21:29 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/17 18:57:00 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/19 18:50:47 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ int	all_number(char	**argument)
 		i++;
 	}
 	return (0);
+}
+
+char	but_not_to_much(char	**argument)
+{
+	long 	n;
+	int		i;
+
+	i = 0;
+	while (argument[i] != NULL)
+	{
+		n = ft_atoll(argument[i]);	
+		if (n > 2147483647 ||  n < -2147483648) 
+			return (1);
+		i++;
+	}
+	return (48);
 }
 
 int	check_simbols(char **argument)
@@ -88,19 +104,24 @@ int	aren_diff(char **argument)
 int	the_real_parse(char	**argument)
 {
 	int		numb;
+	char	size_word;
 	int		original;
 	int		simbols;
 	char	**new_array;
 
 	new_array = make_it_real(0, argument);
 	numb = all_number(new_array);
+	size_word = but_not_to_much(new_array);
 	simbols = check_simbols(new_array);
 	original = aren_diff(new_array);
+
+	if (size_word != 48)
+		ft_printf("ahí hay un numero demasiao largo ¿o qué?\n");
 	if (simbols != 0)
-		ft_printf("tronko, vigila esos simbolicos\n");
+		ft_printf("vigila esos simbolicos\n");
 	if (numb != 0)
-		ft_printf("tronko, no son todos numeros\n");
+		ft_printf("no son todos numeros\n");
 	if (original != 0)
-		ft_printf("tronko, los  hay repes");
+		ft_printf("los  hay repes");
 	return (0);
 }

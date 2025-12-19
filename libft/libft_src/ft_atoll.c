@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/19 19:03:00 by pabserra         ###   ########.fr       */
+/*   Created: 2025/12/19 18:27:19 by pabserra          #+#    #+#             */
+/*   Updated: 2025/12/19 18:36:34 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_list
+long long	ft_atoll(char *nptr)
 {
-	void			*content;
-	struct stack_a	*next;
-}	stack_a;
+	long long		i;
+	long long		j;
+	long long		l;
 
-typedef struct s_list
-{
-	void			*content;
-	struct stack_b	*next;
-}	stack_b;
-
-int		the_real_parse(char **argument);
-char	**finalbuilt(int argv, char	**argvs);
-char	**make_it_real(int i, char **argument);
-
-#endif
+	l = 1;
+	j = 0;
+	i = 0;
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			l = -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		j *= 10;
+		j += nptr[i] - '0';
+		i++;
+	}
+	return (l * j);
+}

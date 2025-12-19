@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/18 17:58:16 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:35:42 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,3 +110,5 @@ char	**finalbuilt(int argv, char	**argvs)
 	free(full_united);
 	return (numerator_cool(argument, value), argument);
 }
+
+
