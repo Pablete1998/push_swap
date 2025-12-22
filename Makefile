@@ -3,6 +3,8 @@ NAME = push_swap
 # Paths
 SRC_DIR = src
 INC_DIR = include
+MVS = movements
+lst = work_with_list
 LIBFT_DIR = libft
 PRINTF_DIR = printft
 
@@ -17,6 +19,16 @@ CFLAGS = -Wall -Wextra -Werror -g3 -I$(INC_DIR) -I$(LIBFT_DIR)/libft_include -I$
 SRC = $(SRC_DIR)/push_swap.c\
 	$(SRC_DIR)/push_swap_parser.c\
 	$(SRC_DIR)/push_swap_construct.c
+
+lists = $(lst)/array_to_list.c\
+	$(lst)/lst_add_back.c\
+	$(lst)/lst_add_front.c\
+	$(lst)/lst_clear.c\
+	$(lst)/lst_delone.c\
+	$(lst)/lst_iter.c\
+	$(lst)/lst_last.c\
+	$(lst)/lst_new_node.c\
+	$(lst)/lst_size.c
 
 OBJ = $(SRC:.c=.o)
 

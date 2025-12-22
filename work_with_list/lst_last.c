@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   lst_last.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 14:22:27 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/20 19:24:12 by pabserra         ###   ########.fr       */
+/*   Created: 2025/12/20 20:48:03 by pabserra          #+#    #+#             */
+/*   Updated: 2025/12/20 20:48:26 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**array_change_rb(char **stack_b)
-{	
+t_node	*lst_last(t_node *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst -> next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

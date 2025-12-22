@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 20:21:15 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/20 13:36:45 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/20 20:25:30 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	newlst = NULL;
 	while (lst)
 	{
-		node_newlst = ft_lstnew(f(lst->content));
+		node_newlst = ft_lstnew(f(lst->value));
 		if (!node_newlst)
 		{
 			ft_lstclear(&newlst, del);

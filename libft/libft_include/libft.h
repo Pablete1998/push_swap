@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:02:20 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/19 18:37:58 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/20 20:27:36 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	void			*value;
 	struct s_list	*next;
 }	t_list;
 

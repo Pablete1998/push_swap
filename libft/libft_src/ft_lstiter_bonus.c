@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 19:18:56 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/17 20:35:49 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/20 20:24:58 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
-		f((lst->content));
+		f((lst->value));
 		lst = lst->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/19 19:03:00 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/22 18:36:38 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,24 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_list
+typedef struct s_node
 {
-	void			*content;
-	struct stack_a	*next;
-}	stack_a;
+	int				value;
+	struct s_node	*next;
+}	t_node;
 
-typedef struct s_list
-{
-	void			*content;
-	struct stack_b	*next;
-}	stack_b;
 
 int		the_real_parse(char **argument);
 char	**finalbuilt(int argv, char	**argvs);
 char	**make_it_real(int i, char **argument);
+t_node	array_to_list(char **stack);
+void	lst_add_back(t_node **lst, t_node *new);
+void	lst_add_front(t_node **lst, t_node *new);
+void	lst_clear(t_node **lst, void (*del)(void*));
+void	lst_delone(t_node *lst, void (*del)(void*));
+void	lst_iter(t_node *lst, void (*f)(void *));
+t_node	*lst_last(t_node *lst);
+t_node	*lst_new_node(int value);
+int	lst_size(t_node *lst);
 
 #endif

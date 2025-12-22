@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   lst_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 14:22:27 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/20 19:24:12 by pabserra         ###   ########.fr       */
+/*   Created: 2025/12/20 20:51:51 by pabserra          #+#    #+#             */
+/*   Updated: 2025/12/20 20:52:17 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**array_change_rb(char **stack_b)
-{	
+int	lst_size(t_node *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }
