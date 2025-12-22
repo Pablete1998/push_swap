@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/19 14:35:42 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:50:24 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ char	*all_united(char **arguments)
 	return (together);
 }
 
-
 char	**numerator_cool(char **argument, int value)
 {
 	int	i;
-	
+
 	i = 0;
 	the_real_parse(argument);
 	while (argument[i] != NULL)
@@ -102,7 +101,7 @@ char	**finalbuilt(int argv, char	**argvs)
 		value++;
 	}
 	arguments[value] = NULL;
- 	full_united = all_united(arguments);
+	full_united = all_united(arguments);
 	free(arguments);
 	if (!full_united)
 		return (NULL);
@@ -110,5 +109,3 @@ char	**finalbuilt(int argv, char	**argvs)
 	free(full_united);
 	return (numerator_cool(argument, value), argument);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 18:13:46 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:46:06 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-int	main(int argv, char **argvs)
+int	main(int argc, char **argv)
 {
 	char	**stack;
-	int		i;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
-	i = 0;
-	stack = finalbuilt(argv, argvs);
-	ft_printf("%s", stack[1]);
-	while (stack[i])
-	{
-		free(stack[i]);
-		i++;
-	}
-	free(stack);
+	if (argc < 2)
+		return (0);
+	stack = finalbuilt(argc, argv);
+	stack_a = array_to_list(stack);
+	stack_b = NULL;
+	return (0);
 }

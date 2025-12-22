@@ -6,12 +6,12 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:22:27 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/20 19:24:12 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:51:50 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 char	**array_change_rb(char **stack_b)
-{	
+{
 }

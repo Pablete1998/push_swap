@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:46:22 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/20 19:23:43 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:51:36 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,4 @@
 
 void	**array_change_ss(char **stack_a, char **stack_b)
 {
-
 }
