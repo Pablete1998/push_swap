@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 18:01:19 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/16 13:36:23 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:41:08 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	size_t	n;
 	char	*s;
 
 	i = 0;
-	n = 0;
 	j = ft_strlen(s1);
 	if (!s1 || !set)
 		return (NULL);

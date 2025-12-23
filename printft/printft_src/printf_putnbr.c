@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:51:33 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/27 19:49:19 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:48:04 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ static int	count_len(int i)
 
 static void	ft_print_putnbr(int n)
 {
-	int	i;
-
-	i = n;
 	if (n == -2147483648)
 		write(1, "-2147483648", 11);
 	if (n < 0)

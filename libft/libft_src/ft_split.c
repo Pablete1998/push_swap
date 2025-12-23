@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:12:24 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/18 18:21:06 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:44:31 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ static size_t	counter_leter(const char *s, char c)
 
 static	void	*ft_frezeer(char **result, size_t count)
 {
-	while (count-- && count >= 0)
+	while (count > 0)
+	{
 		free(result[count]);
+		count--;
+	}
 	free(result);
 	return (NULL);
 }
