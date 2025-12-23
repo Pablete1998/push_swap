@@ -30,7 +30,20 @@ lists = $(lst)/array_to_list.c\
 	$(lst)/lst_new_node.c\
 	$(lst)/lst_size.c
 
-OBJ = $(SRC:.c=.o)
+MOVS = $(MVS)/pa.c\
+	$(MVS)/pb.c\
+	$(MVS)/ra.c\
+	$(MVS)/rb.c\
+	$(MVS)/rr.c\
+	$(MVS)/rra.c\
+	$(MVS)/rrb.c\
+	$(MVS)/rrr.c\
+	$(MVS)/sa.c\
+	$(MVS)/sb.c\
+	$(MVS)/ss.c
+
+OBJ = $(SRC:.c=.o)\
+	$(lists:.c=.o)
 
 # Build
 all: $(LIBFT) $(PRINTF) $(NAME)

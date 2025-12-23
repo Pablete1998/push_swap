@@ -6,14 +6,14 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:49:02 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:53:09 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 18:57:52 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lst_add_front(t_node **lst, t_node *new)
+void	lst_add_front(t_node **lst, t_node *node)
 {
-	new->next = *lst;
-	*lst = new;
+	node->next = *lst;
+	*lst = node;
 }

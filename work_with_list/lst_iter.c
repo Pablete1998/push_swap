@@ -6,13 +6,13 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:51:03 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:53:34 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 19:44:56 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lst_iter(t_node *lst, void (*f)(void *))
+void	lst_iter(t_node *lst, void (*f)(int))
 {
 	while (lst)
 	{

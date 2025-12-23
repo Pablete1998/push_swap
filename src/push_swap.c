@@ -6,13 +6,30 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:46:06 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:11:49 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 #include "ft_printf.h"
+
+
+void	stack_reader(t_node *stack_a, t_node *stack_b)
+{
+	if (!stack_a)
+		ft_printf("empty");
+	while (stack_a)
+	{
+		ft_printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+	while (stack_b)
+	{
+		ft_printf("%d\n", stack_b->value);
+		stack_a = stack_b->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -25,5 +42,6 @@ int	main(int argc, char **argv)
 	stack = finalbuilt(argc, argv);
 	stack_a = array_to_list(stack);
 	stack_b = NULL;
+	stack_reader(stack_a, stack_b);
 	return (0);
 }

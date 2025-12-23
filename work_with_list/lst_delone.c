@@ -6,14 +6,15 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:50:25 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:53:21 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 19:34:55 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lst_delone(t_node *lst, void (*del)(void*))
+void	lst_delone(t_node *lst)
 {
-	del(lst->value);
+	if (!lst)
+		return;
 	free(lst);
 }
