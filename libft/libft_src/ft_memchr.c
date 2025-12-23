@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:47:59 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/08 19:09:01 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:37:04 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (a[i] == l)
-			return ((unsigned char *)&s[i]);
+			return ((unsigned char *)&a[i]);
 		i++;
 	}
 	return (NULL);
