@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:22:11 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:51:33 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:30:21 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	**list_change_sb(t_node **stack_b)
 {
-    sa(stack_b);
-    ft_printf("sb\n");
+	sa(stack_b);
+	ft_printf("sb\n");
 }

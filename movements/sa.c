@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:22:17 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:51:29 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:30:12 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	**list_change_sa(t_node **stack_a)
 {
-    t_node  *first;
-    t_node  *second;
+	t_node	*first;
+	t_node	*second;
 
-    if (!stack_a || !*stack_a || !(*stack_a)->next)
-        return;
-    first = *stack_a;
-    second = (*stack_a)->next;
-    first->next = second->next;
-    second->next = first;
-    *stack_a = second;
-    ft_printf("sa\n");
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return;
+	first = *stack_a;
+	second = (*stack_a)->next;
+	first->next = second->next;
+	second->next = first;
+	*stack_a = second;
+	ft_printf("sa\n");
 }
-
