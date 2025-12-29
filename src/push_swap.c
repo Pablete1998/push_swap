@@ -6,14 +6,13 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/23 21:11:49 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:09:32 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 #include "ft_printf.h"
-
 
 void	stack_reader(t_node *stack_a, t_node *stack_b)
 {
@@ -27,7 +26,7 @@ void	stack_reader(t_node *stack_a, t_node *stack_b)
 	while (stack_b)
 	{
 		ft_printf("%d\n", stack_b->value);
-		stack_a = stack_b->next;
+		stack_b = stack_b->next;
 	}
 }
 
@@ -43,5 +42,7 @@ int	main(int argc, char **argv)
 	stack_a = array_to_list(stack);
 	stack_b = NULL;
 	stack_reader(stack_a, stack_b);
+	freator_stack(stack_a);
+	freator_stack(stack_b);
 	return (0);
 }

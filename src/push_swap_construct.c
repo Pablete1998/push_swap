@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:50:24 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:14:52 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-char	**make_it_real(int i, char **argument)
+/* char	**make_it_real(int i, char **argument)
 {
 	int		j;
 	int		a;
@@ -41,7 +41,7 @@ char	**make_it_real(int i, char **argument)
 	}
 	new_numb[i] = NULL;
 	return (new_numb);
-}
+} */
 
 char	*all_united(char **arguments)
 {
@@ -49,37 +49,59 @@ char	*all_united(char **arguments)
 	char	*together;
 	char	*temp;
 
-	i = 1;
+	i = 0;
+	if (!arguments[0])
+		return (NULL);
 	together = ft_strdup(arguments[0]);
-	while (arguments[i] != NULL)
+	if (!together)
+		return (NULL);
+	while (arguments[++i] != NULL)
 	{
 		temp = ft_strjoin(together, " ");
-		free(together);
 		if (!temp)
-			return (NULL);
+		{	
+			free(together); 
+			return (NULL); 
+		}
+		free(together);
 		together = ft_strjoin(temp, arguments[i]);
 		free(temp);
 		if (!together)
 			return (NULL);
-		i++;
 	}
 	return (together);
 }
 
-char	**numerator_cool(char **argument, int value)
+char	**numerator_cool(char **argument)
 {
-	int	i;
+	int		i;
+	long	num;
 
 	i = 0;
 	the_real_parse(argument);
 	while (argument[i] != NULL)
 	{
-		value = ft_atoi(argument[i]);
+		num = ft_atoi(argument[i]);
 		free(argument[i]);
-		argument[i] = ft_itoa(value);
+		argument[i] = ft_itoa(num);
 		i++;
 	}
 	return (argument);
+}
+
+void	freeator(char **arr)
+{
+	int i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 char	**finalbuilt(int argv, char	**argvs)
@@ -90,22 +112,23 @@ char	**finalbuilt(int argv, char	**argvs)
 	int		value;
 	char	*full_united;
 
-	i = 0;
+	i = 1;
 	value = 0;
-	arguments = malloc(sizeof(char *) * (argv));
+	arguments = malloc(sizeof(char *) * (argv + 1));
 	if (!arguments)
 		return (NULL);
-	while (++i < argv)
+	while (i < argv)
 	{
-		arguments[value] = argvs[i];
+		arguments[value] = ft_strdup(argvs[i]);
 		value++;
+		i++;
 	}
 	arguments[value] = NULL;
 	full_united = all_united(arguments);
-	free(arguments);
+	freeator(arguments);
 	if (!full_united)
 		return (NULL);
 	argument = ft_split(full_united, ' ');
 	free(full_united);
-	return (numerator_cool(argument, value), argument);
+	return (numerator_cool(argument), argument);
 }

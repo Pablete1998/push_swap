@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:12:50 by pabserra          #+#    #+#             */
-/*   Updated: 2025/10/15 17:58:09 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:47:41 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	s = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (s == NULL)
 		return (NULL);
@@ -35,8 +37,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	s[i] = '\0';
-	if (s1[0] == '\0' && s2[0] == '\0')
-		s[0] = '\0';
 	return (s);
 }
 /* 

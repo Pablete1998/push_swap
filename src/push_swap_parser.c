@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:21:29 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:49:30 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:12:57 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	the_real_parse(char	**argument)
 	int		simbols;
 	char	**new_array;
 
-	new_array = make_it_real(0, argument);
+	new_array = argument;
 	numb = all_number(new_array);
 	size_word = but_not_to_much(new_array);
 	simbols = check_simbols(new_array);

@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 18:00:21 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/22 21:53:39 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:42:30 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_node	*array_to_list(char **stack)
 		lst_add_back(&stack_a, lst_new_node(n));
 		i++;
 	}
+	freeator(stack);
 	return (stack_a);
 }

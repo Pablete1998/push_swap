@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:12:24 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/23 21:44:31 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:30:31 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static size_t	counter_leter(const char *s, char c)
 	{
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }
 
 static	void	*ft_frezeer(char **result, size_t count)
@@ -77,23 +77,25 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	size_t	words;
 
-	i = -1;
+	i = 0;
 	words = counter_word(s, c);
 	j = words;
 	result = malloc((words + 1) * sizeof (char *));
 	if (!result)
 		return (NULL);
-	while (s[++i] != '\0' && words > 0)
+	while (s[i] != '\0' && words > 0)
 	{
 		if (s[i] != c)
 		{
-			result[j - words] = malloc(counter_leter(&s[i], c));
+			result[j - words] = malloc(counter_leter(&s[i], c) + 1);
 			if (!result[j - words])
 				return (ft_frezeer(result, j - words));
-			ft_strlcpy(result[j - words], &s[i], counter_leter(&s[i], c));
+			ft_strlcpy(result[j - words], &s[i], counter_leter(&s[i], c) + 1);
 			words--;
-			i = i + counter_leter(&s[i], c) - 1;
+			i = i + counter_leter(&s[i], c);
 		}
+		else
+			i++;
 	}
 	result[j] = NULL;
 	return (result);

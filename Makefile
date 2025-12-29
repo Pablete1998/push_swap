@@ -28,7 +28,8 @@ lists = $(lst)/array_to_list.c\
 	$(lst)/lst_iter.c\
 	$(lst)/lst_last.c\
 	$(lst)/lst_new_node.c\
-	$(lst)/lst_size.c
+	$(lst)/lst_size.c\
+	$(lst)/freator_lists.c
 
 MOVS = $(MVS)/pa.c\
 	$(MVS)/pb.c\
@@ -43,7 +44,8 @@ MOVS = $(MVS)/pa.c\
 	$(MVS)/ss.c
 
 OBJ = $(SRC:.c=.o)\
-	$(lists:.c=.o)
+	$(lists:.c=.o)\
+	$(MOVS:.c=.o)
 
 # Build
 all: $(LIBFT) $(PRINTF) $(NAME)
