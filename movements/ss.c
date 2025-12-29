@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
-void	**array_change_ss(char **stack_a, char **stack_b)
+void	**list_change_ss(t_node **stack_a, t_node **stack_b)
 {
+    list_change_sa(stack_a);
+    list_change_sb(stack_b);
+    ft_printf("ss\n");
 }
+

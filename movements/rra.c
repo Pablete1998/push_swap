@@ -12,6 +12,23 @@
 
 #include "push_swap.h"
 
-char	**array_change_rra(char **stack_a)
+void	**list_change_rra(t_node **stack_a)
 {
+    t_node  *prev;
+    t_node  *last;
+
+    if (!stack_a || !*stack_a || !(*stack_a)->next)
+        return;
+    prev = NULL;
+    last = *stack_a;
+    while (last->next)
+    {
+        prev = last;
+        last = last->next;
+    }
+    prev->next = NULL;
+    last->next = *stack_a;
+    *stack_a = last;
+    ft_printf("rra\n");
 }
+

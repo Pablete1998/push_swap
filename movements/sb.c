@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
-void	**array_change_sb(char **stack_b)
+void	**list_change_sb(t_node **stack_b)
 {
+    sa(stack_b);
+    ft_printf("sb\n");
 }

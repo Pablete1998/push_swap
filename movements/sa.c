@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
-void	**array_change_sa(char **stack_a)
+void	**list_change_sa(t_node **stack_a)
 {
+    t_node  *first;
+    t_node  *second;
+
+    if (!stack_a || !*stack_a || !(*stack_a)->next)
+        return;
+    first = *stack_a;
+    second = (*stack_a)->next;
+    first->next = second->next;
+    second->next = first;
+    *stack_a = second;
+    ft_printf("sa\n");
 }
+

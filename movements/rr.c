@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
-char	**array_change_rr(char **stack_a, char **stack_b)
+void	**list_change_rr(t_node **stack_a, t_node **stack_b)
 {
+    list_change_ra(stack_a);
+    list_change_rb(stack_b);
+    ft_printf("rr\n");
 }
