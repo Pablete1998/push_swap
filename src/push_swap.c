@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/29 19:09:32 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/02 19:45:21 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	stack_reader(t_node *stack_a, t_node *stack_b)
 	}
 }
 
+int	algorth(t_node stack_a, t_node stack_b)
+{
+	
+}
+
 int	main(int argc, char **argv)
 {
 	char	**stack;
@@ -42,6 +47,8 @@ int	main(int argc, char **argv)
 	stack_a = array_to_list(stack);
 	stack_b = NULL;
 	stack_reader(stack_a, stack_b);
+	is_in_order(stack_a);
+	
 	freator_stack(stack_a);
 	freator_stack(stack_b);
 	return (0);

@@ -4,6 +4,7 @@ NAME = push_swap
 SRC_DIR = src
 INC_DIR = include
 MVS = movements
+ALG = the_algorith
 lst = work_with_list
 LIBFT_DIR = libft
 PRINTF_DIR = printft
@@ -43,9 +44,13 @@ MOVS = $(MVS)/pa.c\
 	$(MVS)/sb.c\
 	$(MVS)/ss.c
 
+ALGO = $(ALG)/is_in_order.c\
+		$(ALG)/order_less_than_ten.c
+
 OBJ = $(SRC:.c=.o)\
 	$(lists:.c=.o)\
-	$(MOVS:.c=.o)
+	$(MOVS:.c=.o)\
+	$(ALGO:.c=.o)
 
 # Build
 all: $(LIBFT) $(PRINTF) $(NAME)

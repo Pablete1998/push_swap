@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/29 19:14:52 by pabserra         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:39:50 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ char	*all_united(char **arguments)
 	{
 		temp = ft_strjoin(together, " ");
 		if (!temp)
-		{	
-			free(together); 
-			return (NULL); 
+		{
+			free(together);
+			return (NULL);
 		}
 		free(together);
 		together = ft_strjoin(temp, arguments[i]);
@@ -91,7 +91,7 @@ char	**numerator_cool(char **argument)
 
 void	freeator(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!arr)

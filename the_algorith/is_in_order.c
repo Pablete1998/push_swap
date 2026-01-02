@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   is_in_order.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 14:22:17 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/02 18:34:40 by pabserra         ###   ########.fr       */
+/*   Created: 2025/12/30 18:57:27 by pabserra          #+#    #+#             */
+/*   Updated: 2026/01/02 18:11:08 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	list_change_sa(t_node **stack_a)
+int	is_in_order(t_node *stack)
 {
-	t_node	*first;
-	t_node	*second;
-
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return ;
-	first = *stack_a;
-	second = (*stack_a)->next;
-	first->next = second->next;
-	second->next = first;
-	*stack_a = second;
-	ft_printf("sa\n");
+	while (stack  && stack->next)
+	{
+		if (stack->value > stack->next->value)
+		{
+			ft_printf("HAY QUE ORDENAR");
+			return (0);
+		}
+		stack = stack->next;
+	}
+	ft_printf("TODO EN ORDEN");
+	return (1);
 }
