@@ -20,11 +20,9 @@ int	is_in_order(t_node *stack)
 	{
 		if (stack->value > stack->next->value)
 		{
-			ft_printf("HAY QUE ORDENAR");
 			return (0);
 		}
 		stack = stack->next;
 	}
-	ft_printf("TODO EN ORDEN");
 	return (1);
 }

@@ -45,7 +45,8 @@ MOVS = $(MVS)/pa.c\
 	$(MVS)/ss.c
 
 ALGO = $(ALG)/is_in_order.c\
-		$(ALG)/order_less_than_ten.c
+		$(ALG)/order_less_than_ten.c\
+		$(ALG)/my_radix.c
 
 OBJ = $(SRC:.c=.o)\
 	$(lists:.c=.o)\

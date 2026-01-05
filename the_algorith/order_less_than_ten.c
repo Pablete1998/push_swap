@@ -28,7 +28,7 @@ int	for_three(t_node **stack)
 	else if (a > b && b < c && a > c)
 		list_change_rra(stack);
 	else if (a < b && b > c && a > c)
-		list_change_rra(stack);
+		list_change_sa(stack);
 	else if (a < b && b > c && a < c) 
 	{
 		list_change_sa(stack);
@@ -42,11 +42,58 @@ int	for_three(t_node **stack)
 	return (1);
 }
 
-int	for_five(t_node **stack_a, t_node **stack_b)
+int	find_smaller(t_node *stack_a)
 {
-	int	i;
+	int	min;
+	int	index;
+	int i;
 
-	while (*stack_a && (*stack_a)->next)
+	min = stack_a->value;
+	index = 0;
+	i = 0;
+	while (stack_a)
 	{
+		if (stack_a->value < min)
+		{
+			min = stack_a->value;
+			index = i;
+		}
+		stack_a = stack_a->next;
+		i++; 
 	}
+	return (index);
+}
+
+void	min_to_top(t_node **stack_a, int min_index)
+{	int	size;
+
+	size = lst_size(*stack_a);
+	if (min_index <= size / 2)
+	{
+		while (min_index-- > 0)
+			list_change_ra(stack_a);
+	}
+	else
+	{
+		while (min_index++ < size)
+			list_change_rra(stack_a);
+	}
+}
+
+void	for_four_or_five(t_node **stack_a, t_node **stack_b)
+{
+	int	size;
+	int	min_index;
+
+	size  = lst_size(*stack_a);
+	while (size > 3)
+	{
+		min_index = find_smaller(*stack_a);
+		min_to_top(stack_a, min_index);
+		list_change_pb(stack_a, stack_b);
+		size--;
+	}
+	for_three(stack_a);
+	while (*stack_b)
+		list_change_pa(stack_a, stack_b);	
 }
