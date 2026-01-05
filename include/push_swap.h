@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/02 19:09:10 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:57:30 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void	list_change_rrr(t_node **stack_a, t_node **stack_b);
 void	list_change_sa(t_node **stack_a);
 void	list_change_sb(t_node **stack_b);
 void	list_change_ss(t_node **stack_a, t_node **stack_b);
-int	is_in_order(t_node *stack);
-int	for_three(t_node **stack);
+int		is_in_order(t_node *stack);
+int		for_three(t_node **stack);
+void	for_four_or_five(t_node **stack_a, t_node **stack_b);
+void	radix_sorting(t_node **stack_a, t_node **stack_b);
+void	add_index(t_node *stack);
 
 #endif

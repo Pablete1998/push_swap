@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/02 19:45:21 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:06:07 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,24 @@ void	stack_reader(t_node *stack_a, t_node *stack_b)
 	}
 }
 
-int	algorth(t_node stack_a, t_node stack_b)
+int	push_swap(t_node **stack_a, t_node **stack_b)
 {
-	
+	int	size;
+
+	if (is_in_order(*stack_a))
+		return ;
+	size = lst_size(*stack_a);
+	if (size == 2)
+		list_change_sa(*stack_a);
+	else if (size == 3)
+		for_three(stack_a);
+	else if (size <= 5)
+		for_four_or_five(stack_a, stack_b);
+	else
+		radix_sorting(stack_a, stack_b);
 }
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	char	**stack;
 	t_node	*stack_a;
@@ -48,8 +60,29 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_reader(stack_a, stack_b);
 	is_in_order(stack_a);
-	
 	freator_stack(stack_a);
 	freator_stack(stack_b);
+	return (0);
+} */
+
+int	main(int argc, char **argv)
+{
+	char	**stack;
+	t_node	*stack_a;
+	t_node	*stack_b;
+
+	stack_a = NULL;
+	stack_b = NULL;
+	if (argc < 2)
+		return (0);
+	if (!parse_arguments(argc, argv, &stack_a))
+	{
+		freeator(&stack_a);
+		ft_printf("Error\n");
+		return (1);
+	}
+	add_index(stack_a);
+	push_swap(&stack_a, &stack_b);
+	freator_stack(&stack_a);
 	return (0);
 }

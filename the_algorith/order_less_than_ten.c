@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 18:11:45 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/02 21:00:03 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:40:57 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 int	for_three(t_node **stack)
 {
 	int	a;
-	int b;
-	int c;
+	int	b;
+	int	c;
 
 	a = (*stack)->value;
 	b = (*stack)->next->value;
 	c = (*stack)->next->next->value;
-	if (a > b && b < c &&  a < c)
+	if (a > b && b < c && a < c)
 		list_change_sa(stack);
 	else if (a > b && b < c && a > c)
 		list_change_rra(stack);
 	else if (a < b && b > c && a > c)
 		list_change_sa(stack);
-	else if (a < b && b > c && a < c) 
+	else if (a < b && b > c && a < c)
 	{
 		list_change_sa(stack);
 		list_change_ra(stack);
@@ -46,7 +46,7 @@ int	find_smaller(t_node *stack_a)
 {
 	int	min;
 	int	index;
-	int i;
+	int	i;
 
 	min = stack_a->value;
 	index = 0;
@@ -59,13 +59,14 @@ int	find_smaller(t_node *stack_a)
 			index = i;
 		}
 		stack_a = stack_a->next;
-		i++; 
+		i++;
 	}
 	return (index);
 }
 
 void	min_to_top(t_node **stack_a, int min_index)
-{	int	size;
+{
+	int	size;
 
 	size = lst_size(*stack_a);
 	if (min_index <= size / 2)
@@ -85,7 +86,7 @@ void	for_four_or_five(t_node **stack_a, t_node **stack_b)
 	int	size;
 	int	min_index;
 
-	size  = lst_size(*stack_a);
+	size = lst_size(*stack_a);
 	while (size > 3)
 	{
 		min_index = find_smaller(*stack_a);
@@ -95,5 +96,5 @@ void	for_four_or_five(t_node **stack_a, t_node **stack_b)
 	}
 	for_three(stack_a);
 	while (*stack_b)
-		list_change_pa(stack_a, stack_b);	
+		list_change_pa(stack_a, stack_b);
 }

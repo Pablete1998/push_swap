@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:57:27 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/02 18:11:08 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:38:37 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	is_in_order(t_node *stack)
 {
-	while (stack  && stack->next)
+	while (stack && stack->next)
 	{
 		if (stack->value > stack->next->value)
 		{
