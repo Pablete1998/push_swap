@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/05 14:57:30 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:23:38 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	lst_iter(t_node *lst, void (*f)(int));
 t_node	*lst_last(t_node *lst);
 t_node	*lst_new_node(int value);
 int		lst_size(t_node *lst);
-void	freator_stack(t_node *stack);
+void	freator_stack(t_node **stack);
 void	list_change_pa(t_node **stack_a, t_node **stack_b);
 void	list_change_pb(t_node **stack_a, t_node **stack_b);
 void	list_change_ra(t_node **stack_a);
