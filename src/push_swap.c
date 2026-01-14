@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/14 19:10:31 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/14 19:21:52 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	stack_reader(t_node *stack_a)
 {
 	if (!stack_a)
 		ft_printf("empty");
-	while (stack_a->next != NULL)
+	while (stack_a != NULL)
 	{
 		ft_printf("%d\n", stack_a->value);
 		stack_a = stack_a->next;
@@ -42,28 +42,6 @@ int	push_swap(t_node **stack_a, t_node **stack_b)
 		radix_sorting(stack_a, stack_b);
 	return (1);
 }
-
-/* int	main(int argc, char **argv)
-{
-	char	**stack;
-	t_node	*stack_a;
-	t_node	*stack_b;
-
-	if (argc < 2)
-		return (0);
-	stack = finalbuilt(argc, argv);
-	stack_a = array_to_list(stack);
-	t_node *tmp = stack_a;
-	while (tmp)
-	{
-		printf("%d ", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("\n");
-	add_index(stack_a);
-	push_swap(&stack_a, &stack_b);
-	return (0);
-} */
 
 int	main(int argc, char **argv)
 {
