@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:21:29 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/29 19:12:57 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/14 19:12:13 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,31 @@ int	aren_diff(char **argument)
 	return (0);
 }
 
+int	chequeator(int	numb, int simbols, int original, char size_word)
+{
+	if (simbols != 0)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	if (numb != 0)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	if (original != 0)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	if (size_word != 48)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	return (0);
+}
+
 int	the_real_parse(char	**argument)
 {
 	int		numb;
@@ -118,13 +143,7 @@ int	the_real_parse(char	**argument)
 	size_word = but_not_to_much(new_array);
 	simbols = check_simbols(new_array);
 	original = aren_diff(new_array);
-	if (size_word != 48)
-		ft_printf("ahí hay un numero demasiao largo ¿o qué?\n");
-	if (simbols != 0)
-		ft_printf("vigila esos simbolicos\n");
-	if (numb != 0)
-		ft_printf("no son todos numeros\n");
-	if (original != 0)
-		ft_printf("los  hay repes");
+	if (chequeator(numb, simbols, original, size_word) != 0)
+		return (1);
 	return (0);
 }

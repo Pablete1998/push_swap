@@ -13,7 +13,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/printft.a
 
 # Compiler and flags
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3 -I$(INC_DIR) -I$(LIBFT_DIR)/libft_include -I$(PRINTF_DIR)/printft_include 
 
 # Sources
@@ -76,3 +76,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: re clean fclean all 

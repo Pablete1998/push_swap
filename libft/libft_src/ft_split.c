@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:12:24 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/29 18:30:31 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:37:40 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ void ft_matrix_free(char **matrix)
 	return (NULL)
 } */
 
+char	**axuiliar(size_t words)
+{
+	char	**result;
+
+	result = malloc((words + 1) * sizeof (char *));
+	if (!result)
+		return (NULL);
+	return (result);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -80,9 +90,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	words = counter_word(s, c);
 	j = words;
-	result = malloc((words + 1) * sizeof (char *));
-	if (!result)
-		return (NULL);
+	result = axuiliar(words);
 	while (s[i] != '\0' && words > 0)
 	{
 		if (s[i] != c)

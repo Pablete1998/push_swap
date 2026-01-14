@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2025/12/30 18:39:50 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/14 19:10:01 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,12 @@ char	**numerator_cool(char **argument)
 {
 	int		i;
 	long	num;
+	int		response;
 
 	i = 0;
-	the_real_parse(argument);
+	response = the_real_parse(argument);
+	if (response != 0)
+		return NULL;
 	while (argument[i] != NULL)
 	{
 		num = ft_atoi(argument[i]);
@@ -86,6 +89,7 @@ char	**numerator_cool(char **argument)
 		argument[i] = ft_itoa(num);
 		i++;
 	}
+	argument[i] = NULL;
 	return (argument);
 }
 
@@ -130,5 +134,5 @@ char	**finalbuilt(int argv, char	**argvs)
 		return (NULL);
 	argument = ft_split(full_united, ' ');
 	free(full_united);
-	return (numerator_cool(argument), argument);
+	return (numerator_cool(argument));
 }

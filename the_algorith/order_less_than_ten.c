@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 18:11:45 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/05 14:40:57 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/14 17:10:40 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	find_smaller(t_node *stack_a)
 void	min_to_top(t_node **stack_a, int min_index)
 {
 	int	size;
+	int	r;
 
 	size = lst_size(*stack_a);
 	if (min_index <= size / 2)
@@ -76,7 +77,8 @@ void	min_to_top(t_node **stack_a, int min_index)
 	}
 	else
 	{
-		while (min_index++ < size)
+		r = size - min_index;
+		while (r-- > 0)
 			list_change_rra(stack_a);
 	}
 }
