@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:01:49 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/14 19:10:01 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/15 16:34:17 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**numerator_cool(char **argument)
 	i = 0;
 	response = the_real_parse(argument);
 	if (response != 0)
-		return NULL;
+		return (NULL);
 	while (argument[i] != NULL)
 	{
 		num = ft_atoi(argument[i]);

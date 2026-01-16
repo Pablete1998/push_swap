@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order_less_than_ten.c                              :+:      :+:    :+:   */
+/*   order_less_than_six.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 18:11:45 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/14 17:10:40 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/16 17:58:05 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	for_three(t_node **stack)
 	if (a > b && b < c && a < c)
 		list_change_sa(stack);
 	else if (a > b && b < c && a > c)
-		list_change_rra(stack);
+		list_change_ra(stack);
 	else if (a < b && b > c && a > c)
-		list_change_sa(stack);
+		list_change_rra(stack);
 	else if (a < b && b > c && a < c)
 	{
 		list_change_sa(stack);

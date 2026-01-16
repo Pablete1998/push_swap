@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   the_real_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 17:03:03 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/15 17:11:04 by pabserra         ###   ########.fr       */
+/*   Created: 2026/01/15 16:40:54 by pabserra          #+#    #+#             */
+/*   Updated: 2026/01/15 16:51:03 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+int	the_real_parse(char	**argument)
 {
-	char	*ptr;
-	size_t	i;
-	size_t	j;
+	int		numb;
+	char	size_word;
+	int		original;
+	int		simbols;
+	char	**new_array;
 
-	j = 0;
-	i = ft_strlen(s);
-	ptr = malloc((i) + 1);
-	if (!ptr)
-		return (NULL);
-	while (s[j] != '\0')
-	{
-		ptr[j] = s[j];
-		j++;
-	}
-	ptr[j] = '\0';
-	return (ptr);
+	new_array = argument;
+	numb = all_number(new_array);
+	size_word = but_not_to_much(new_array);
+	simbols = check_simbols(new_array);
+	original = aren_diff(new_array);
+	if (chequeator(numb, simbols, original, size_word) != 0)
+		return (1);
+	return (0);
 }

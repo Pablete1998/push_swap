@@ -18,8 +18,9 @@ CFLAGS = -Wall -Wextra -Werror -g3 -I$(INC_DIR) -I$(LIBFT_DIR)/libft_include -I$
 
 # Sources
 SRC = $(SRC_DIR)/push_swap.c\
-	$(SRC_DIR)/push_swap_parser.c\
-	$(SRC_DIR)/push_swap_construct.c
+	$(SRC_DIR)/push_swap_conditions_parser.c\
+	$(SRC_DIR)/push_swap_construct.c\
+	$(SRC_DIR)/push_swap_the_real_parser.c
 
 lists = $(lst)/array_to_list.c\
 	$(lst)/lst_add_back.c\
@@ -45,7 +46,7 @@ MOVS = $(MVS)/pa.c\
 	$(MVS)/ss.c
 
 ALGO = $(ALG)/is_in_order.c\
-		$(ALG)/order_less_than_ten.c\
+		$(ALG)/order_less_than_six.c\
 		$(ALG)/my_radix.c
 
 OBJ = $(SRC:.c=.o)\

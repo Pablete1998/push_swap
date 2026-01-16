@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:21:29 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/14 19:12:13 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/15 16:49:48 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ int	all_number(char	**argument)
 			if (!ft_isdigit(argument[i][j]) &&
 				(argument[i][j] != '-') && (argument[i][j] != '+'))
 				return (-1);
-			if (ft_isdigit(argument[i][j]) &&
-				(!ft_isdigit(argument[i][j + 1]))
-					&& (argument[i][j + 1] != 32)
-						&& (argument[i][j + 1] != '\0'))
+			if (ft_isdigit(argument[i][j]) && (!ft_isdigit(argument[i][j + 1]))
+				&& (argument[i][j + 1] != 32) && (argument[i][j + 1] != '\0'))
 				return (-1);
 			j++;
 		}
@@ -71,7 +69,8 @@ int	check_simbols(char **argument)
 		{
 			if (argument[i][j] == '-' || argument[i][j] == '+')
 			{
-				if (argument[i][j + 1] == '-' || argument[i][j + 1] == '+')
+				if (argument[i][j + 1] == '-'
+						|| argument[i][j + 1] == '+')
 					return (-1);
 				if ((argument[i][j + 1]) == '\0'
 					|| !ft_isdigit(argument[i][j + 1]))
@@ -105,7 +104,7 @@ int	aren_diff(char **argument)
 	return (0);
 }
 
-int	chequeator(int	numb, int simbols, int original, char size_word)
+int	chequeator(int numb, int simbols, int original, char size_word)
 {
 	if (simbols != 0)
 	{
@@ -127,23 +126,5 @@ int	chequeator(int	numb, int simbols, int original, char size_word)
 		ft_printf("Error\n");
 		return (1);
 	}
-	return (0);
-}
-
-int	the_real_parse(char	**argument)
-{
-	int		numb;
-	char	size_word;
-	int		original;
-	int		simbols;
-	char	**new_array;
-
-	new_array = argument;
-	numb = all_number(new_array);
-	size_word = but_not_to_much(new_array);
-	simbols = check_simbols(new_array);
-	original = aren_diff(new_array);
-	if (chequeator(numb, simbols, original, size_word) != 0)
-		return (1);
 	return (0);
 }

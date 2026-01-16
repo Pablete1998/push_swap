@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:57:50 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/14 19:21:52 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:41:01 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	stack_reader(t_node *stack_a)
+/* void	stack_reader(t_node *stack_a)
 {
 	if (!stack_a)
 		ft_printf("empty");
@@ -24,7 +24,7 @@ void	stack_reader(t_node *stack_a)
 		stack_a = stack_a->next;
 	}
 }
-
+ */
 int	push_swap(t_node **stack_a, t_node **stack_b)
 {
 	int	size;
@@ -60,21 +60,3 @@ int	main(int argc, char **argv)
 	push_swap(&stack_a, &stack_b);
 	return (0);
 }
-
-/* int	main(int argc, char **argv)
-{
-	char	**stack;
-	t_node	*stack_a;
-	t_node	*stack_b;
-
-	if (argc < 2)
-		return (0);
-	stack = finalbuilt(argc, argv);
-	stack_a = array_to_list(stack);
-	stack_b = NULL;
-	stack_reader(stack_a, stack_b);
-	is_in_order(stack_a);
-	freator_stack(stack_a);
-	freator_stack(stack_b);
-	return (0);
-} */

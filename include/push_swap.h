@@ -6,7 +6,7 @@
 /*   By: pabserra <pabserra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:13:59 by pabserra          #+#    #+#             */
-/*   Updated: 2026/01/05 17:23:38 by pabserra         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:32:58 by pabserra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
+int		chequeator(int numb, int simbols, int original, char size_word);
+int		aren_diff(char **argument);
+int		check_simbols(char **argument);
+char	but_not_to_much(char **argument);
+int		all_number(char **argument);
 int		the_real_parse(char **argument);
-char	**finalbuilt(int argv, char	**argvs);
+char	**finalbuilt(int argv, char **argvs);
 char	**make_it_real(int i, char **argument);
 t_node	*array_to_list(char **stack);
 void	freeator(char **arr);
