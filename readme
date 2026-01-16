@@ -1,0 +1,228 @@
+# push_swap
+
+Implementación de un sistema de ordenación basado en dos pilas y un conjunto limitado de operaciones atómicas. El objetivo es producir una secuencia de instrucciones válida y lo más eficiente posible para ordenar un conjunto arbitrario de enteros.
+
+---
+
+## 1. Descripción general
+
+`push_swap` recibe una lista de enteros como argumentos, valida la entrada y construye una pila (`stack_a`). El programa debe ordenar estos valores utilizando exclusivamente las operaciones permitidas sobre dos pilas (`stack_a` y `stack_b`).  
+La salida consiste únicamente en la secuencia de instrucciones necesarias para ordenar la pila.
+
+---
+
+## 2. Requisitos funcionales
+
+### 2.1 Validación de entrada
+
+El programa debe detectar:
+
+- Caracteres no numéricos  
+- Argumentos vacíos o mal formados  
+- Duplicados  
+- Overflow/underflow (`INT_MIN`, `INT_MAX`)  
+- Espacios múltiples o combinaciones inválidas  
+
+En caso de error, debe imprimirse:
+
+```
+Error
+```
+
+y finalizar inmediatamente.
+
+---
+
+## 3. Estructuras de datos
+
+### 3.1 Representación de nodos
+
+```c
+typedef struct s_node
+{
+    int             value;      // Valor original
+    int             index;      // Índice normalizado (0..n-1)
+    struct s_node   *next;
+} t_node;
+```
+
+### 3.2 Justificación del uso de índices
+
+El algoritmo Radix requiere trabajar con valores consecutivos y sin huecos.  
+Por ello, cada valor se transforma en un índice según su posición ordenada:
+
+- El menor valor recibe índice 0  
+- El siguiente índice 1  
+- …  
+- El mayor índice n-1  
+
+Esto garantiza:
+
+- Comparaciones binarias correctas  
+- Complejidad estable  
+- Independencia del rango real de los valores  
+
+---
+
+## 4. Operaciones permitidas
+
+### 4.1 Swap
+- `sa` — intercambia los dos primeros elementos de `stack_a`  
+- `sb` — intercambia los dos primeros elementos de `stack_b`  
+- `ss` — `sa` y `sb` simultáneamente  
+
+### 4.2 Push
+- `pa` — mueve el primer elemento de `stack_b` a `stack_a`  
+- `pb` — mueve el primer elemento de `stack_a` a `stack_b`  
+
+### 4.3 Rotate
+- `ra` — desplaza `stack_a` hacia arriba  
+- `rb` — desplaza `stack_b` hacia arriba  
+- `rr` — `ra` y `rb` simultáneamente  
+
+### 4.4 Reverse rotate
+- `rra` — desplaza `stack_a` hacia abajo  
+- `rrb` — desplaza `stack_b` hacia abajo  
+- `rrr` — `rra` y `rrb` simultáneamente  
+
+---
+
+## 5. Estrategias de ordenación
+
+### 5.1 Casos pequeños (≤ 5 elementos)
+
+#### 3 elementos
+Se utiliza un conjunto exhaustivo de combinaciones mínimas basadas en comparaciones directas.
+
+#### 4–5 elementos
+1. Se identifican los valores más pequeños mediante su índice.  
+2. Se empujan a `stack_b` con `pb`.  
+3. Se ordena `stack_a` con el algoritmo de 3 elementos.  
+4. Se reinserta con `pa`.  
+
+Complejidad: **O(n²)** pero óptimo para n pequeño.
+
+---
+
+## 6. Radix Sort binario (n > 5)
+
+### 6.1 Justificación
+
+Radix Sort es el método más eficiente dentro de las restricciones del proyecto:
+
+- Complejidad: **O(n log n)**  
+- Operaciones simples (`pb`, `pa`, `ra`)  
+- Estable y determinista  
+
+### 6.2 Algoritmo
+
+1. Calcular el número de bits necesarios para representar el índice máximo.  
+2. Para cada bit `i`:  
+   - Recorrer la pila completa:  
+     - Si el bit `i` del índice es 0 → `pb`  
+     - Si es 1 → `ra`  
+   - Vaciar `stack_b` con `pa`  
+
+### 6.3 Invariantes del algoritmo
+
+- `stack_a` conserva el orden relativo de los elementos cuyo bit actual es 1.  
+- `stack_b` contiene temporalmente los elementos cuyo bit actual es 0.  
+- Al finalizar cada pasada, `stack_b` debe estar vacío.  
+- El proceso es estable: no destruye el orden previo.  
+
+---
+
+## 7. Complejidad
+
+| Tamaño | Estrategia | Complejidad |
+|--------|------------|-------------|
+| 2–3    | Comparaciones directas | O(1) |
+| 4–5    | Inserción + mini-sort | O(n²) |
+| >5     | Radix binario | O(n log n) |
+
+---
+
+## 8. Compilación
+
+```bash
+make
+```
+
+Genera el ejecutable `push_swap`.
+
+---
+
+## 9. Ejecución
+
+```bash
+./push_swap 3 2 5 1 4
+```
+
+Salida (ejemplo):
+
+```
+pb
+ra
+pb
+sa
+pa
+pa
+```
+
+---
+
+## 10. Verificación con checker
+
+```bash
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_Mac $ARG
+```
+
+---
+
+## 11. Estructura del proyecto
+
+```
+push_swap/
+│── src/
+│   ├── push_swap.c
+│   ├── parsing.c
+│   ├── index.c
+│   ├── operations/
+│   │   ├── swap.c
+│   │   ├── push.c
+│   │   ├── rotate.c
+│   │   └── reverse_rotate.c
+│   ├── small_sort.c
+│   ├── radix_sort.c
+│   └── utils.c
+│
+│── include/
+│   └── push_swap.h
+│
+│── libft/
+│── Makefile
+│── README.md
+```
+
+---
+
+## 12. Consideraciones de memoria
+
+- Todas las listas se liberan al finalizar.  
+- No se permiten fugas de memoria.  
+- Las operaciones no deben crear nodos nuevos.  
+- El parser debe liberar correctamente en caso de error.  
+
+---
+
+## 13. Conclusión
+
+`push_swap` combina:
+
+- Diseño algorítmico bajo restricciones  
+- Manipulación precisa de estructuras dinámicas  
+- Optimización de operaciones  
+- Control estricto de memoria  
+
+El resultado es un sistema determinista, eficiente y completamente ajustado a las reglas del proyecto.
+
