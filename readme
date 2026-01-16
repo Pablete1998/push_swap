@@ -6,7 +6,7 @@ Implementación de un sistema de ordenación basado en dos pilas y un conjunto l
 
 ## 1. Descripción general
 
-`push_swap` recibe una lista de enteros como argumentos, valida la entrada y construye una pila (`stack_a`). El programa debe ordenar estos valores utilizando exclusivamente las operaciones permitidas sobre dos pilas (`stack_a` y `stack_b`).  
+push_swap recibe una lista de enteros como argumentos, valida la entrada utilizando arrays y construye una pila (stack_a). El programa ordena estos valores usando las operaciones permitidas sobre dos pilas (stack_a y stack_b).  
 La salida consiste únicamente en la secuencia de instrucciones necesarias para ordenar la pila.
 
 ---
@@ -18,48 +18,46 @@ La salida consiste únicamente en la secuencia de instrucciones necesarias para 
 El programa debe detectar:
 
 - Caracteres no numéricos  
-- Argumentos vacíos o mal formados  
 - Duplicados  
-- Overflow/underflow (`INT_MIN`, `INT_MAX`)  
-- Espacios múltiples o combinaciones inválidas  
+- límites de los números enteros
+- Combinaciones inválidas  
 
-En caso de error, debe imprimirse:
+En caso de error, se imprime:
 
 ```
 Error
 ```
 
-y finalizar inmediatamente.
+y finalizar el programa.
 
 ---
 
-## 3. Estructuras de datos
+## 3. Estructur de datos
 
 ### 3.1 Representación de nodos
 
-```c
+c
 typedef struct s_node
 {
     int             value;      // Valor original
     int             index;      // Índice normalizado (0..n-1)
     struct s_node   *next;
 } t_node;
-```
 
-### 3.2 Justificación del uso de índices
 
-El algoritmo Radix requiere trabajar con valores consecutivos y sin huecos.  
-Por ello, cada valor se transforma en un índice según su posición ordenada:
+### 3.2 Uso de índices
 
-- El menor valor recibe índice 0  
+El algoritmo Radix requiere trabajar con valores consecutivos y sin huecos.
+Por eso, cada valor se transforma en un índice según su posición ordenada:
+
+- El valor más pequeño recibe índice 0  
 - El siguiente índice 1  
 - …  
 - El mayor índice n-1  
 
-Esto garantiza:
+Esto nos permite asegurarnos de:
 
-- Comparaciones binarias correctas  
-- Complejidad estable  
+- Realizar comparaciones binarias correctas    
 - Independencia del rango real de los valores  
 
 ---
@@ -67,23 +65,23 @@ Esto garantiza:
 ## 4. Operaciones permitidas
 
 ### 4.1 Swap
-- `sa` — intercambia los dos primeros elementos de `stack_a`  
-- `sb` — intercambia los dos primeros elementos de `stack_b`  
-- `ss` — `sa` y `sb` simultáneamente  
+- sa — intercambia los dos primeros elementos de stack_a  
+- sb — intercambia los dos primeros elementos de stack_b  
+- ss — sa y sb simultáneamente  
 
 ### 4.2 Push
-- `pa` — mueve el primer elemento de `stack_b` a `stack_a`  
-- `pb` — mueve el primer elemento de `stack_a` a `stack_b`  
+- pa — mueve el primer elemento de stack_b a stack_a  
+- pb — mueve el primer elemento de stack_a a stack_b  
 
 ### 4.3 Rotate
-- `ra` — desplaza `stack_a` hacia arriba  
-- `rb` — desplaza `stack_b` hacia arriba  
-- `rr` — `ra` y `rb` simultáneamente  
+- ra — desplaza stack_a hacia arriba  
+- rb — desplaza stack_b hacia arriba  
+- rr — ra y rb simultáneamente  
 
 ### 4.4 Reverse rotate
-- `rra` — desplaza `stack_a` hacia abajo  
-- `rrb` — desplaza `stack_b` hacia abajo  
-- `rrr` — `rra` y `rrb` simultáneamente  
+- rra — desplaza stack_a hacia abajo  
+- rrb — desplaza stack_b hacia abajo  
+- rrr — rra y rrb simultáneamente  
 
 ---
 
@@ -96,9 +94,9 @@ Se utiliza un conjunto exhaustivo de combinaciones mínimas basadas en comparaci
 
 #### 4–5 elementos
 1. Se identifican los valores más pequeños mediante su índice.  
-2. Se empujan a `stack_b` con `pb`.  
-3. Se ordena `stack_a` con el algoritmo de 3 elementos.  
-4. Se reinserta con `pa`.  
+2. Se empujan a stack_b con pb.  
+3. Se ordena stack_a con el algoritmo de 3 elementos.  
+4. Se reinserta con pa.  
 
 Complejidad: **O(n²)** pero óptimo para n pequeño.
 
@@ -110,24 +108,23 @@ Complejidad: **O(n²)** pero óptimo para n pequeño.
 
 Radix Sort es el método más eficiente dentro de las restricciones del proyecto:
 
-- Complejidad: **O(n log n)**  
-- Operaciones simples (`pb`, `pa`, `ra`)  
+- Operaciones simples (pb, pa, ra)  
 - Estable y determinista  
 
 ### 6.2 Algoritmo
 
 1. Calcular el número de bits necesarios para representar el índice máximo.  
-2. Para cada bit `i`:  
+2. Para cada bit i:  
    - Recorrer la pila completa:  
-     - Si el bit `i` del índice es 0 → `pb`  
-     - Si es 1 → `ra`  
-   - Vaciar `stack_b` con `pa`  
+     - Si el bit i del índice es 0 → pb  
+     - Si es 1 → ra  
+   - Vaciar stack_b con pa  
 
 ### 6.3 Invariantes del algoritmo
 
-- `stack_a` conserva el orden relativo de los elementos cuyo bit actual es 1.  
-- `stack_b` contiene temporalmente los elementos cuyo bit actual es 0.  
-- Al finalizar cada pasada, `stack_b` debe estar vacío.  
+- stack_a conserva el orden relativo de los elementos cuyo bit actual es 1.  
+- stack_b contiene temporalmente los elementos cuyo bit actual es 0.  
+- Al finalizar cada pasada, stack_b debe estar vacío.  
 - El proceso es estable: no destruye el orden previo.  
 
 ---
@@ -144,19 +141,22 @@ Radix Sort es el método más eficiente dentro de las restricciones del proyecto
 
 ## 8. Compilación
 
-```bash
+bash:
 make
-```
 
-Genera el ejecutable `push_swap`.
+si ya se ha compilado, se debe usar:
+make re
+
+para eliminar los .o:
+make clean
+
+Genera el ejecutable push_swap.
 
 ---
 
 ## 9. Ejecución
 
-```bash
 ./push_swap 3 2 5 1 4
-```
 
 Salida (ejemplo):
 
@@ -173,36 +173,68 @@ pa
 
 ## 10. Verificación con checker
 
-```bash
+bash
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_Mac $ARG
-```
+
 
 ---
 
 ## 11. Estructura del proyecto
 
-```
+
 push_swap/
-│── src/
-│   ├── push_swap.c
-│   ├── parsing.c
-│   ├── index.c
-│   ├── operations/
-│   │   ├── swap.c
-│   │   ├── push.c
-│   │   ├── rotate.c
-│   │   └── reverse_rotate.c
-│   ├── small_sort.c
-│   ├── radix_sort.c
-│   └── utils.c
-│
 │── include/
 │   └── push_swap.h
 │
 │── libft/
+│   │──libft_include
+│   │──Makefile
+│   └──libft_src
+│
+│── printft/
+│   │──printft_include
+│   │──Makefile
+│   └──printft_src
+│
+│── movements/
+│   ├── pa.c
+│   ├── pb.c
+│   ├── ra.c
+│   ├── rb.c
+│   ├── rra.c
+│   ├── rrb.c
+│   ├── rrr.c
+│   ├── sa.c
+│   ├── sb.c
+│   └── ss.c
+│
+│── src/
+│   ├── construct_stack_b.c
+│   ├── push_swap_conditions_parser.c
+│   ├── push_swap_construct.c
+│   ├── push_swap_the_real_parser.c
+│   └── push_swap.c
+│
+│── the_algorith/
+│   ├── is_in_order.c
+│   ├── my_radix.c
+│   └── order_less_than_six.c
+│
+│── work_with_list/
+│   ├── array_to_list.c
+│   ├── freator_lists.c
+│   ├── lst_add_back.c
+│   ├── lst_add_front.c
+│   ├── lst_clear.c
+│   ├── lst_delone.c
+│   ├── lst_iter.c
+│   ├── lst_last.c
+│   ├── lst_new_node.c
+│   └── lst_size.c
+│
 │── Makefile
 │── README.md
-```
+
 
 ---
 
